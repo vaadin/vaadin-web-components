@@ -40,6 +40,22 @@ class MenuBarSubmenuElement extends ContextMenuElement {
       this.getRootNode().host._close();
     }
   }
+
+  /**
+   * Overriding the open method to fire an event when a sub menu is opened.
+   * @private
+   */
+  __openSubMenu(subMenu, itemElement) {
+    super.__openSubMenu(subMenu, itemElement);
+
+    this.dispatchEvent(
+        new CustomEvent('sub-menu-opened', {
+          detail: {
+            subMenuElement: subMenu
+          }
+        })
+    );
+  }
 }
 
 customElements.define(MenuBarSubmenuElement.is, MenuBarSubmenuElement);
