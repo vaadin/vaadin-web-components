@@ -1,0 +1,35 @@
+{
+  "name": "@vaadin/field-base",
+  "version": "21.0.0-alpha13",
+  "description": "Vaadin field base mixins",
+  "main": "index.js",
+  "module": "index.js",
+  "repository": "vaadin/web-components",
+  "keywords": [
+    "Vaadin",
+    "web-components",
+    "web-component"
+  ],
+  "author": "Vaadin Ltd",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/vaadin/web-components"
+  },
+  "homepage": "https://vaadin.com/components",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "src"
+  ],
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0"
+  },
+  "devDependencies": {
+    "@esm-bundle/chai": "^4.1.5",
+    "@vaadin/testing-helpers": "^0.2.1",
+    "sinon": "^9.2.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
