@@ -1,0 +1,40 @@
+{
+  "name": "@vaadin/input-container",
+  "version": "21.0.0-alpha13",
+  "description": "vaadin-input-container",
+  "main": "vaadin-input-container.js",
+  "module": "vaadin-input-container.js",
+  "repository": "vaadin/web-components",
+  "keywords": [
+    "Vaadin",
+    "web-components",
+    "web-component"
+  ],
+  "author": "Vaadin Ltd",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/vaadin/web-components/issues"
+  },
+  "homepage": "https://vaadin.com/components",
+  "files": [
+    "vaadin-*.d.ts",
+    "vaadin-*.js",
+    "src",
+    "theme"
+  ],
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0",
+    "@vaadin/vaadin-lumo-styles": "21.0.0-alpha13",
+    "@vaadin/vaadin-material-styles": "21.0.0-alpha13",
+    "@vaadin/vaadin-themable-mixin": "21.0.0-alpha13"
+  },
+  "devDependencies": {
+    "@esm-bundle/chai": "^4.1.5",
+    "@vaadin/testing-helpers": "^0.2.1",
+    "@vaadin/vaadin-icon": "21.0.0-alpha13",
+    "@vaadin/vaadin-icons": "21.0.0-alpha13"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
