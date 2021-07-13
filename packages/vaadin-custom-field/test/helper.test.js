@@ -102,4 +102,26 @@ describe('helper text', () => {
       expect(customField.getAttribute('has-helper')).to.be.equal('slotted');
     });
   });
+
+  describe('slotted component', () => {
+    let field, helper;
+
+    beforeEach(() => {
+      field = fixtureSync(`
+        <vaadin-custom-field>
+            <input type="text" />
+
+            <input type="text" slot="helper" />
+        </vaadin-custom-field>
+      `);
+      helper = field.querySelector('[slot="helper"]');
+      field.focus();
+    });
+
+    it('should get focus when clicked', () => {
+      helper.focus();
+
+      expect(document.activeElement).to.be.equal(helper);
+    });
+  });
 });

@@ -492,3 +492,29 @@ describe('helper slot', () => {
     expect(group.hasAttribute('has-helper')).to.be.false;
   });
 });
+
+describe('slot focus', () => {
+  let group, helper;
+
+  beforeEach(() => {
+    group = fixtureSync(`
+      <vaadin-checkbox-group>
+        <vaadin-checkbox value="1">Checkbox <b>1</b></vaadin-checkbox>
+        <vaadin-checkbox value="2">Checkbox <b>2</b></vaadin-checkbox>
+        <vaadin-checkbox value="3">Checkbox <b>3</b></vaadin-checkbox>
+        <div slot="helper">
+          <input type="text" />
+        </div>
+      </vaadin-checkbox-group>
+    `);
+    group._observer.flush();
+    group.focus();
+    helper = group.querySelector('[slot="helper"]');
+  });
+
+  it('should not get focus after click', () => {
+    helper.click();
+
+    expect(group.hasAttribute('focused')).to.be.false;
+  });
+});

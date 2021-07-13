@@ -340,3 +340,46 @@ import '../vaadin-text-area.js';
     });
   });
 });
+
+describe('helper text', () => {
+  describe('slotted', () => {
+    let field, helper;
+    beforeEach(() => {
+      field = fixtureSync(`
+        <vaadin-text-area label="outer">
+          <vaadin-text-area label="inner" slot="helper">
+            <vaadin-text-area label="inner" slot="helper"></vaadin-text-area>
+          </vaadin-text-area>
+        </vaadin-text-area>
+      `);
+      helper = field.querySelector('[slot="helper"]');
+      field.focus();
+    });
+
+    it('should get focus when clicked', () => {
+      expect(field.hasAttribute('focused')).to.be.true;
+    });
+
+    it('helper should get focus when clicked', () => {
+      helper.inputElement.focus();
+      expect(field.hasAttribute('focused')).to.be.false;
+      expect(helper.hasAttribute('focused')).to.be.true;
+    });
+  });
+
+  describe.only('text', () => {
+    let field, helper;
+    beforeEach(() => {
+      field = fixtureSync(`
+      <vaadin-text-area label='text-field' helper-text='helper-text'>
+      </vaadin-text-area>
+    `);
+
+      helper = field.root.querySelector('[part="helper-text"]');
+    });
+    it('should not get focus when helper text is clicked', () => {
+      helper.click();
+      expect(field.hasAttribute('focused')).to.be.false;
+    });
+  });
+});

@@ -676,4 +676,38 @@ describe('vaadin-select', () => {
       expect(select._inputElement.helperText).to.equal(select.helperText);
     });
   });
+
+  describe('with slotted helper', () => {
+    beforeEach(async () => {
+      select = fixtureSync(`
+        <vaadin-select>
+          <button slot="helper">click</button>
+        </vaadin-select>
+      `);
+
+      select.renderer = (root) => {
+        if (root.firstElementChild) {
+          return;
+        }
+        render(
+          html`
+            <vaadin-list-box>
+              <vaadin-item value="v1">t1</vaadin-item>
+              <vaadin-item value="v2" label="o2">t2</vaadin-item>
+            </vaadin-list-box>
+          `,
+          root
+        );
+      };
+      await nextFrame();
+    });
+
+    it('should not open select when clicked on button', () => {
+      let helper = select.querySelector('[slot="helper"]');
+
+      helper.click();
+
+      expect(select.hasAttribute('opened')).to.be.false;
+    });
+  });
 });

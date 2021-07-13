@@ -88,7 +88,7 @@ class CustomFieldElement extends ElementMixin(CustomFieldMixin(ThemableMixin(Pol
         <div class="inputs-wrapper" on-change="__updateValue">
           <slot id="slot"></slot>
         </div>
-        <div part="helper-text" on-click="focus" id="[[__helperTextId]]">
+        <div part="helper-text" id="[[__helperTextId]]">
           <slot name="helper" id="helperSlot">[[helperText]]</slot>
         </div>
         <div

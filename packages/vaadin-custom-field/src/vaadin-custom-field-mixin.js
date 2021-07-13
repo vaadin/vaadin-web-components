@@ -140,6 +140,8 @@ export const CustomFieldMixin = (superClass) =>
         }
       });
 
+      this.addEventListener('click', this._onClick.bind(this), true);
+
       var uniqueId = (CustomFieldMixin._uniqueId = 1 + CustomFieldMixin._uniqueId || 1);
       this.__errorId = `${this.constructor.is}-error-${uniqueId}`;
       this.__labelId = `${this.constructor.is}-label-${uniqueId}`;
@@ -236,6 +238,10 @@ export const CustomFieldMixin = (superClass) =>
       } else if (this.helperText === '' || this.helperText === null) {
         this.removeAttribute('has-helper');
       }
+    }
+
+    _onClick(e) {
+      if (e.target.getAttribute('slot') === 'helper') e.preventDefault();
     }
 
     /**

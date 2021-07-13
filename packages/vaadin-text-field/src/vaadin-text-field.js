@@ -95,7 +95,7 @@ class TextFieldElement extends ElementMixin(TextFieldMixin(ControlStateMixin(The
           <slot name="suffix"></slot>
         </div>
 
-        <div part="helper-text" on-click="focus" id="[[_helperTextId]]">
+        <div part="helper-text" id="[[_helperTextId]]">
           <slot name="helper">[[helperText]]</slot>
         </div>
 

@@ -90,7 +90,6 @@ class CheckboxGroupElement extends ThemableMixin(DirMixin(PolymerElement)) {
 
         <div
           part="helper-text"
-          on-click="focus"
           aria-live="assertive"
           aria-hidden$="[[_getHelperTextAriaHidden(helperText, _hasSlottedHelper)]]"
         >
